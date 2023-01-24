@@ -4,7 +4,7 @@
 // push --> Daten rein ... (+)
 
 
-// pop() --> Daten raus ... (-)
+pop() --> Daten raus ... (-)
 
 
 
