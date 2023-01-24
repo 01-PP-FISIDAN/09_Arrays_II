@@ -1,11 +1,41 @@
 /*********   Theorie **********/
 
 // push() / pop()
+
 // push --> Daten rein ... (+)
+//push schiebt Daten an das Ende des Array
+let arr = [];
+output(arr);
+arr.push("Ich");
+output(arr);
+arr.push("bin");
+output(arr);
+arr.push("MadMax");
+output(arr);
 
-
+//pop nimmt Daten von hinten aus dem Array weg
 // pop() --> Daten raus ... (-)
+output(arr);
+arr.pop();
+output(arr);
+arr.pop();
+output(arr);
+arr.pop();
 
+// man kann auch die Funktion direkt ausgeben lassen, worauf sie zeigt, indem output davor kommt
+output(arr);
+output(arr.push("Ich"));
+output(arr);
+output(arr.push("bin"));
+output(arr);
+output(arr.push("MadMax"));
+output(arr);
+output(arr);
+output(arr.pop());
+output(arr);
+output(arr.pop());
+output(arr);
+output(arr.pop());
 
 
 /*
@@ -16,7 +46,7 @@ einer HTML-Seite ausgibt:
 Verwenden Sie dafür die untenstehenden Arrays
 */
 
-const COBJ      = {open_o:"<",close_o:"</",close:">"}
+const COBJ      = {open_o:"<",close_o:"</",close:">"} 
 const CONTROLS  = ["<", "</", ">"];
 const TAGS = [  "html",
 				"head","head",
@@ -33,36 +63,60 @@ const TAGS = [  "html",
 let stack = [];
 
 // Modul: HTML-Synthese | Test
-// output(getHTML());
+output(getHTML());
 
 // folgende Funktion aus 07_Arrays_I umbauen getHTML und htmlstr
-function getHTML() {
+function getHTML()
+{
 
  
 
     let htmlStr = "";
 
     for (let i = 0; i < TAGS.length; i++) {
+        if (isOpenElement)
+        // if (true) 
+        // if (false)
+        {
+            htmlStr += getElement(TAGS[i], "open");
+        } else {
+            htmlStr += getElement(TAGS[i], "close");
+        }
+            
+        }
 
         // htmlStr += "</" + TAGS[i] + ">";
-        htmlStr += getElement();
-    }
-
+        // htmlStr += getElement();
+        // htmlStr += getElement(TAGS[i], "open");
+        // htmlStr += getElement(TAGS[i], "close");
    return htmlStr;
 
-}
+};
+
+
 
 // Modul: Zusammenbau der Elements: <tagStr> --> Tests:
-output(getElement(TAGS[1],"open"));
-output(getElement(TAGS[1],"close"));
-output(getElement(TAGS[1]));
+// output(getElement(TAGS[3],"open"));
+// output(getElement(TAGS[2],"close"));
+// output(getElement(TAGS[1]));
 function getElement(tag,op) {
+    
+    // switch (op) {
+    //     case "open":
+    //         return CONTROLS[0] + tag + CONTROLS[2];   
+    //     case "close":
+    //         return CONTROLS[1] + tag + CONTROLS[2];
+        
+    //     default:
+    //         return "error";    
+            
+    // }
     
     switch (op) {
         case "open":
-            return CONTROLS[0] + tag + CONTROLS[2];   
+            return COBJ.open_o + tag + COBJ.close;   
         case "close":
-            return CONTROLS[1] + tag + CONTROLS[2];
+            return COBJ.close_o + tag + COBJ.close;
         
         default:
             return "error";    
@@ -73,8 +127,82 @@ function getElement(tag,op) {
     
     
     
-    
 }
+function isOpenElement() {
+    return false;
+}
+
+//von KI gebaut:
+// function isOpenElement() {
+//     var str = "<" + TAGS[3] + " " + TAGS[2] + ">";
+//     return COBJ.isOpen(str);
+// }
+// function isCloseElement() {
+//     var str = "<" + TAGS[3] + " " + TAGS[2] + "/>";
+//     return COBJ.isOpen(str);
+// }
+// function getElements() {
+//     return COBJ.getElements(TAGS[3], TAGS[2]);
+// }
+
+// function output(str) {
+//     alert(str);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Modul: Ausgabe | Test
 //output("hi");
