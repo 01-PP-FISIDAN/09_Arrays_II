@@ -4,7 +4,7 @@
 // push --> Daten rein ... (+)
 
 
-pop() --> Daten raus ... (-)
+// pop() --> Daten raus ... (-)
 
 
 
@@ -16,9 +16,9 @@ einer HTML-Seite ausgibt:
 Verwenden Sie dafür die untenstehenden Arrays
 */
 
-const cobj      = {open_o:"<",close_o:"</",close:">"}
-const controls  = ["<", "</", ">"];
-const tags = [  "html",
+const COBJ      = {open_o:"<",close_o:"</",close:">"}
+const CONTROLS  = ["<", "</", ">"];
+const TAGS = [  "html",
 				"head","head",
 				"body",
                 "h1","h1",
