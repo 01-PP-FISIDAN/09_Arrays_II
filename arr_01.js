@@ -5,37 +5,37 @@
 // push --> Daten rein ... (+)
 //push schiebt Daten an das Ende des Array
 let arr = [];
-output(arr);
-arr.push("Ich");
-output(arr);
-arr.push("bin");
-output(arr);
-arr.push("MadMax");
-output(arr);
+// output(arr);
+// arr.push("Ich");
+// output(arr);
+// arr.push("bin");
+// output(arr);
+// arr.push("MadMax");
+// output(arr);
 
-//pop nimmt Daten von hinten aus dem Array weg
-// pop() --> Daten raus ... (-)
-output(arr);
-arr.pop();
-output(arr);
-arr.pop();
-output(arr);
-arr.pop();
+// //pop nimmt Daten von hinten aus dem Array weg
+// // pop() --> Daten raus ... (-)
+// output(arr);
+// arr.pop();
+// output(arr);
+// arr.pop();
+// output(arr);
+// arr.pop();
 
-// man kann auch die Funktion direkt ausgeben lassen, worauf sie zeigt, indem output davor kommt
-output(arr);
-output(arr.push("Ich"));
-output(arr);
-output(arr.push("bin"));
-output(arr);
-output(arr.push("MadMax"));
-output(arr);
-output(arr);
-output(arr.pop());
-output(arr);
-output(arr.pop());
-output(arr);
-output(arr.pop());
+// // man kann auch die Funktion direkt ausgeben lassen, worauf sie zeigt, indem output davor kommt
+// output(arr);
+// output(arr.push("Ich"));
+// output(arr);
+// output(arr.push("bin"));
+// output(arr);
+// output(arr.push("MadMax"));
+// output(arr);
+// output(arr);
+// output(arr.pop());
+// output(arr);
+// output(arr.pop());
+// output(arr);
+// output(arr.pop());
 
 
 /*
@@ -68,16 +68,14 @@ output(getHTML());
 // folgende Funktion aus 07_Arrays_I umbauen getHTML und htmlstr
 function getHTML()
 {
-
- 
-
     let htmlStr = "";
 
     for (let i = 0; i < TAGS.length; i++) {
-        if (isOpenElement)
+        if (isOpenElement(TAGS[i])) {
+
         // if (true) 
         // if (false)
-        {
+        
             htmlStr += getElement(TAGS[i], "open");
         } else {
             htmlStr += getElement(TAGS[i], "close");
@@ -128,10 +126,68 @@ function getElement(tag,op) {
     
     
 }
-function isOpenElement() {
-    return false;
+output(isOpenElement(TAGS[0])); //TAG kommt aus der Schleife oben
+output(isOpenElement(TAGS[1]));
+output(isOpenElement(TAGS[2]));
+function isOpenElement(tag) {
+
+    // let cond = true
+    let cond = tag != stack[stack.length - 1]
+ 
+    
+    
+    if (cond) {
+        stack.push(tag);
+        output(stack);
+        return true;
+    } else {
+        stack.pop();
+        output(stack);
+        return false;
+    }
+
+    
 }
 
+
+//     //TAGS stackt für "open" von KI:
+//     //tag.length < 3 --> error, Tag ungueltig
+//     //getElement(tag, "open")
+//     if (TAGS.length < 3) {
+//         return false;
+//     }
+    
+//     return getElement(TAGS[TAGS.length-1], "open");
+    
+    
+    
+// }
+
+
+
+
+
+// // Zusammenbau der Tests:
+// // test(isOpenElement(TAGS[3]));
+// // test(isOpenElement(TAGS[1]));
+// // test(isOpenElement(TAGS[0]));
+// function test(isOpen) {
+//     // TAGS stackt für "open"
+//     if (TAGS.length < 3) {
+//         return false;
+//     }
+    
+//     if (isOpenElement()) {
+//         output(isOpenElement());
+//     } else {
+//         output(getElement(TAGS[TAGS.length - 1], "close"));
+
+    
+    
+    
+//         return false;
+//     }
+// }
 //von KI gebaut:
 // function isOpenElement() {
 //     var str = "<" + TAGS[3] + " " + TAGS[2] + ">";
@@ -206,6 +262,7 @@ function isOpenElement() {
 
 // Modul: Ausgabe | Test
 //output("hi");
+
 function output(outputData) {
     console.log(outputData);
 }
